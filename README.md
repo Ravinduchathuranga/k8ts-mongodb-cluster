@@ -52,13 +52,10 @@ Mongo Express connects to MongoDB internally within the Kubernetes network.
 ```
 kubernetes-mongodb-deployment/
 │
-├── mongo-configmap.yaml
+├── mongo-config.yaml
+├── mongo-express.yaml
 ├── mongo-secret.yaml
-├── mongodb-deployment.yaml
-├── mongodb-service.yaml
-├── mongo-express-deployment.yaml
-├── mongo-express-service.yaml
-│
+├── mongo.yaml
 └── README.md
 ```
 
@@ -124,12 +121,10 @@ cd kubernetes-mongodb-deployment
 Create the resources in the following order:
 
 ```bash
+kubectl apply -f mongo-config.yaml
+kubectl apply -f mongo-express.yaml
 kubectl apply -f mongo-secret.yaml
-kubectl apply -f mongo-configmap.yaml
-kubectl apply -f mongodb-deployment.yaml
-kubectl apply -f mongodb-service.yaml
-kubectl apply -f mongo-express-deployment.yaml
-kubectl apply -f mongo-express-service.yaml
+kubectl apply -f mongo.yaml
 ```
 
 ---
